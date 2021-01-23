@@ -165,16 +165,19 @@ module.exports = {
         test: /\.(sass|scss)$/i,
         use: getStyleLoaders('sass-loader'),
       },
-      // {
-      //   test: /\.(png|jpe?g|svg|gif)$/,
-      //   use: ['file-loader'],
-      // },
-      // изображения
       {
-        test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
-        type: 'asset/resource',
+        test: /\.(png|jpe?g|gif)$/,
+        use: ['file-loader'],
       },
-
+      // изображения
+      // {
+      //   test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
+      //   type: 'asset/resource',
+      // },
+      {
+        test: /\.svg$/,
+        use: ['url-loader?limit=8193', 'svgo-loader'],
+      },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
         use: ['file-loader'],

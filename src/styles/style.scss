@@ -3,7 +3,7 @@
 
 body {
   background: $main-bg-color;
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: $primary-font;
 }
 
 .header {
@@ -25,7 +25,7 @@ body {
     &__logo {
       color: $primary-color;
       text-transform: uppercase;
-      font-size: 30px;
+      font-size: $font-size-big;
       .e {
         color: $active-color;
       }
@@ -43,7 +43,7 @@ body {
     }
     &__link {
       padding: 10px 20px;
-      font-size: 14px;
+      font-size: $font-size-primary;
       text-transform: uppercase;
       text-decoration: none;
       border: 2px solid rgba($color: #000, $alpha: 0);
@@ -69,7 +69,7 @@ body {
     flex-direction: column;
     &_text {
       color: $primary-color;
-      font-size: 30px;
+      font-size: $font-size-big;
       text-transform: uppercase;
       padding: 20px;
       margin-top: 10px;
@@ -77,6 +77,69 @@ body {
         margin-top: 0;
       }
       background: rgba($color: #353f46, $alpha: 0.5);
+    }
+  }
+}
+
+.services {
+  color: $primary-color;
+  text-transform: uppercase;
+  background: $active-color;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 100%;
+    margin: 0;
+    padding: 80px 0 0 0;
+    font-size: $font-size-big;
+    font-weight: 100;
+  }
+  &__title::after {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    width: 45px;
+    margin-top: 5px;
+    border-top: 2px solid $primary-color;
+  }
+
+  &__service {
+    width: 20%;
+    &__icon {
+      width: 55px;
+      height: 55px;
+      margin-top: 40px;
+    }
+    .coffee {
+      background-image: url('../imgs/coffee-break.svg');
+      background-size: cover;
+    }
+    .instant {
+      background-image: url('../imgs/instant-camera.svg');
+      background-size: cover;
+    }
+    .serious {
+      background-image: url('../imgs/scroll.svg');
+      background-size: cover;
+    }
+
+    .frame {
+      background-image: url('../imgs/frame.svg');
+      background-size: cover;
+    }
+    &__title {
+      font-size: $font-size-medium;
+      margin: 25px 0 0 0;
+    }
+    &__desc {
+      font-size: $font-size-primary;
+      text-transform: initial;
     }
   }
 }
