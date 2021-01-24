@@ -1,0 +1,8 @@
+@mixin filter($visible: 100%) {
+  -webkit-filter: grayscale($visible);
+  -moz-filter: grayscale($visible);
+  -ms-filter: grayscale($visible);
+  -o-filter: grayscale($visible);
+  filter: grayscale($visible);
+  filter: gray;
+}

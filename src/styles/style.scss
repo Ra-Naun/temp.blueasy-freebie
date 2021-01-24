@@ -1,5 +1,6 @@
 @import 'common.scss';
 @import 'variables.scss';
+@import 'mixins.scss';
 
 body {
   background: $main-bg-color;
@@ -26,6 +27,7 @@ body {
     .link.active {
       color: $active-color;
       border: 2px solid $active-color;
+      box-shadow: 4px 4px 8px 2px rgba($active-color, 0.2);
     }
   }
 }
@@ -177,20 +179,33 @@ body {
       border-top: 2px solid $alter-primary-color;
     }
   }
-  &__links {
+  &__btns {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
+    align-items: start;
     margin: 0;
+  }
+  @media (max-width: 991.98px) {
+    &__btns {
+      margin-top: 45px;
+    }
+  }
+  @media (max-width: 767.98px) {
+    &__el {
+      margin-bottom: 30px;
+    }
   }
   &__el {
     font-weight: 700;
-    padding-left: 45px;
+    margin-left: 25px;
     &:first-child {
-      padding-left: 0;
+      margin-left: 0;
     }
   }
-  &__link {
+  &__btn {
+    outline: none; /* Для синий ободки */
+    background: transparent;
     padding: 10px 15px;
     font-size: $font-size-primary;
     border: 2px solid rgba($color: #000, $alpha: 0);
@@ -200,46 +215,214 @@ body {
   &__works {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    min-height: 200px;
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
 
   &__work {
-    width: 25%;
-    box-sizing: border-box;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 30px;
-    &:nth-child(4n) {
-      padding-right: 0;
+
+    overflow: hidden;
+    transition: 0.5s all;
+
+    @media (max-width: 991.98px) and (min-width: 768px) {
+      & {
+        width: 50%;
+        height: 50%;
+      }
     }
 
-    padding-bottom: 30px;
-    &:nth-last-child(-n + 4) {
-      padding-bottom: 0;
+    @media (max-width: 1199.97px) and (min-width: 992px) {
+      & {
+        width: 33.3333%;
+        height: 33.3333%;
+      }
+    }
+
+    @media (min-width: 1199.98px) {
+      & {
+        width: 25%;
+        height: 25%;
+      }
+    }
+  }
+
+  .anime {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  .hide {
+    animation-name: hide;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes hide {
+    0% {
+      visibility: visible;
+      height: 200px;
+    }
+    100% {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      max-width: 0;
+      font-size: 0;
+      margin: 0;
     }
   }
 
   &__img {
-    position: relative;
     width: 270px;
     height: 270px;
-    vertical-align: bottom;
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 1;
-      width: 270px;
-      height: 270px;
-      background: rgba($color: #515f67, $alpha: 0.7);
-      transition: 0.5s all;
+    padding: 10px;
+    object-fit: cover;
+
+    transition: 0.5s all;
+    @include filter(80%);
+    &:hover {
+      @include filter(0%);
+      box-shadow: 4px 4px 8px 15px rgba($accent-color, 0.2);
     }
-    &:hover::before {
+    &:active {
+      box-shadow: 4px 4px 8px 15px rgba($active-color, 0.4);
+    }
+  }
+
+  &__cover {
+    width: 270px;
+    height: 270px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba($color: #515f67, $alpha: 0.3);
+    transition: 0.5s all;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px 2px rgba(34, 60, 80, 0.2);
+    &:hover {
       background: rgba($color: #515f67, $alpha: 0);
+      box-shadow: 4px 4px 8px 15px rgba($accent-color, 0.2);
+      @include filter(20%);
+    }
+    &:active {
+      box-shadow: 4px 4px 8px 15px rgba($active-color, 0.4);
+    }
+  }
+
+  &__wrapper_lm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  &__load_more {
+    margin: 30px;
+    padding: 10px 30px;
+    font-size: $font-size-primary;
+    text-transform: uppercase;
+    text-align: center;
+    background: #042a63;
+    border: 2px solid #042a63;
+    border-radius: 3px;
+    color: $primary-color;
+    transition: all 0.25s ease-out;
+    -webkit-font-smoothing: antialiased;
+    outline: none;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    &:hover {
+      border: 2px solid $accent-color;
+      background-color: $accent-color;
+      box-shadow: 4px 4px 8px 0px rgba($accent-color, 0.2);
+    }
+    &:active {
+      border: 2px solid $active-color;
+      background-color: $active-color;
+      box-shadow: 4px 4px 8px 0px rgba($active-color, 0.2);
+    }
+  }
+}
+
+.defoultSection {
+  width: 100%;
+  color: $primary-color;
+  .container {
+    height: 330px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 80px 0;
+    position: relative;
+  }
+
+  &__text {
+    width: 50%;
+    margin-right: 130px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    font-size: $font-size-big;
+    font-weight: 100;
+    text-transform: uppercase;
+    &::after {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      width: 45px;
+      margin-top: 5px;
+      border-top: 2px solid $primary-color;
+    }
+  }
+  //
+  &__desc {
+    margin: 0;
+    margin-bottom: 40px;
+  }
+
+  .visit-me {
+    width: 50%;
+    text-transform: uppercase;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid black;
+    padding: 20px 40px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    &:hover {
+      color: $accent-color;
+      border: 2px solid $accent-color;
+      box-shadow: 4px 4px 8px 0px rgba($accent-color, 0.2);
+    }
+    &:active {
+      color: $active-color;
+      border: 2px solid $active-color;
+      box-shadow: 4px 4px 8px 0px rgba($active-color, 0.2);
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    right: 0;
+    bottom: 80px;
+    .video_mock {
+      border: 2px solid rgba($color: $primary-color, $alpha: 0.1);
+      box-shadow: 4px 4px 8px 15px rgba(34, 60, 80, 0.2);
+      min-width: calc(100%-15px);
+      min-height: 100%;
+      max-width: calc(100%-15px);
+      max-height: 100%;
+
+      margin-left: 15px;
     }
   }
 }

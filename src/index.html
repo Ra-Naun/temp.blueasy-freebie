@@ -71,26 +71,57 @@
     <section class="portfolio">
       <div class="container">
         <div class="logo portfolio__logo">portfolio</div>
-        <ul class="links portfolio__links">
-          <li class="el portfolio__el"><a href="#" class="link portfolio__link">all</a></li>
-          <li class="el portfolio__el"><a href="#" class="link portfolio__link">panoramas</a></li>
-          <li class="el portfolio__el"><a href="#" class="link portfolio__link">portraits</a></li>
-          <li class="el portfolio__el"><a href="#" class="link portfolio__link">macro</a></li>
-          <li class="el portfolio__el"><a href="#" class="link portfolio__link">journal</a></li>
+        <ul class="links portfolio__btns">
+          <li class="el portfolio__el">
+            <button class="link portfolio__btn" data-filter="all">all</button>
+          </li>
+
+          <li class="el portfolio__el">
+            <button class="link portfolio__btn" data-filter="panoramas">panoramas</button>
+          </li>
+
+          <li class="el portfolio__el">
+            <button class="link portfolio__btn" data-filter="portraits">portraits</button>
+          </li>
+
+          <li class="el portfolio__el">
+            <button class="link portfolio__btn" data-filter="macro">macro</button>
+          </li>
+
+          <li class="el portfolio__el">
+            <button class="link portfolio__btn" data-filter="journal">journal</button>
+          </li>
         </ul>
       </div>
 
       <div class="container">
         <ul class="portfolio__works">
-          <li class="portfolio__work"><img src="./imgs/w1.jpg" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
-          <li class="portfolio__work"><img src="" class="portfolio__img" /></li>
+          <!-- template -->
         </ul>
+        <div class="portfolio__wrapper_lm">
+          <button class="portfolio__load_more">load more...</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="defoultSection">
+      <div class="container">
+        <div class="defoultSection__text">
+          <div class="defoultSection__title">just default section</div>
+
+          <p class="defoultSection__desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, odio praesentium. Id accusantium velit dignissimos earum praesentium unde, ducimus animi in aliquam saepe expedita.
+          </p>
+          <p class="defoultSection__desc">
+            Lorem ipsum dolor sit amet elit. Commodi, odio praesentium. Id mollitia earum praesentium unde, laudantium harum vitae explicabo ducimus animi in aliquam saepe expedita.
+          </p>
+
+          <button class="visit-me">visit me</button>
+        </div>
+
+        <div class="defoultSection__video">
+          <img class="video_mock" alt="vimeo video example" />
+        </div>
       </div>
     </section>
   </body>
