@@ -167,7 +167,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        use: ['file-loader'],
+        loader: 'file-loader',
+        options: {
+          outputPath: 'imgs',
+        },
       },
       // изображения
       // {
