@@ -323,8 +323,8 @@ body {
     cursor: pointer;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     &:hover {
-      border: 2px solid $accent-color;
-      background-color: $accent-color;
+      border: 2px solid #08367c;
+      background-color: #08367c;
       box-shadow: 4px 4px 8px 0px rgba($accent-color, 0.2);
     }
     &:active {
@@ -336,33 +336,45 @@ body {
 }
 
 .defoultSection {
+  display: flex;
   width: 100%;
   color: $primary-color;
   .container {
-    height: 330px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 80px 0;
     position: relative;
   }
 
-  &__text {
-    width: 50%;
-    margin-right: 130px;
-  }
-
   &__title {
     @include __title($primary-color);
+    width: 100%;
+    order: 0;
   }
   //
   &__desc {
+    order: 2;
     margin: 0;
     margin-bottom: 40px;
+
+    width: 50%;
+    margin-right: 130px;
+
+    @media (max-width: 767.98px) {
+      & {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
   }
 
   .visit-me {
-    width: 50%;
+    order: 2;
     text-transform: uppercase;
     background-color: transparent;
     outline: none;
@@ -383,11 +395,6 @@ body {
   }
 
   &__video {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    right: 0;
-    bottom: 80px;
     .video_mock {
       border: 2px solid rgba($color: $primary-color, $alpha: 0.1);
       box-shadow: 4px 4px 8px 15px rgba(34, 60, 80, 0.2);
@@ -395,8 +402,34 @@ body {
       min-height: 100%;
       max-width: calc(100%-15px);
       max-height: 100%;
-
       margin-left: 15px;
+      cursor: pointer;
+
+      @include filter(60%);
+      &:hover {
+        @include filter(0%);
+        box-shadow: 0px 0px 14px 6px rgba($accent-color, 0.2);
+      }
+      &:active {
+        box-shadow: 0px 0px 14px 6px rgba($active-color, 0.3);
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      & {
+        width: 100%;
+        margin-bottom: 45px;
+        order: 1;
+      }
+    }
+    @media (min-width: 767.99px) {
+      & {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        right: 0;
+        bottom: 80px;
+      }
     }
   }
 }
@@ -451,6 +484,7 @@ body {
 
 .who-is {
   color: $primary-color;
+  background: url('../imgs/who-is.fon.png') round;
   .container {
     display: flex;
     align-items: flex-start;
@@ -501,25 +535,5 @@ body {
         box-shadow: 4px 4px 8px 2px rgba($accent-color, 0.2);
       }
     }
-    .wrapper_twitter {
-      &__icon {
-        position: relative;
-        height: 40px;
-        width: 40px;
-        background-image: url('../imgs/instant-camera.svg');
-      }
-    }
   }
-}
-
-.icon__twitter {
-  height: 40px;
-  width: 40px;
-  background-image: url('../imgs/google-plus-logo.svg');
-}
-
-.google-plus__icon {
-  height: 40px;
-  width: 40px;
-  background-image: url('../imgs/google-plus-logo.svg');
 }
