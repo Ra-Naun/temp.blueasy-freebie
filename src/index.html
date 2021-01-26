@@ -8,15 +8,19 @@
   </head>
   <body>
     <header class="header">
+      <a name="home"></a>
       <div class="nav-bar">
         <div class="container">
-          <div class="logo nav-bar__logo">blu<span class="e">e</span>asy</div>
+          <div class="logo nav-bar__logo">
+            blu<span class="e">e</span>asy
+            <a class="link_hide" href="#home" target="_blank"></a>
+          </div>
           <ul class="links nav-bar__links">
-            <li class="el nav-bar__el"><a href="#" class="link nav-bar__link">home</a></li>
-            <li class="el nav-bar__el"><a href="#" class="link nav-bar__link">services</a></li>
-            <li class="el nav-bar__el"><a href="#" class="link nav-bar__link">features</a></li>
-            <li class="el nav-bar__el"><a href="#" class="link nav-bar__link">portfolio</a></li>
-            <li class="el nav-bar__el"><a href="#" class="link nav-bar__link">contact</a></li>
+            <li class="el nav-bar__el"><a href="#home" class="link nav-bar__link">home</a></li>
+            <li class="el nav-bar__el"><a href="#services" class="link nav-bar__link">services</a></li>
+            <li class="el nav-bar__el"><a href="#features" class="link nav-bar__link">features</a></li>
+            <li class="el nav-bar__el"><a href="#portfolio" class="link nav-bar__link">portfolio</a></li>
+            <li class="el nav-bar__el"><a href="#contact" class="link nav-bar__link">contact</a></li>
           </ul>
         </div>
       </div>
@@ -26,7 +30,8 @@
       </div>
     </header>
 
-    <section class="services">
+    <section name="services" class="services">
+      <a name="services"></a>
       <div class="container">
         <p class="services__title">services</p>
 
@@ -68,7 +73,8 @@
       </div>
     </section>
 
-    <section class="portfolio">
+    <section  class="portfolio">
+      <a name="portfolio"></a>
       <div class="container">
         <div class="logo portfolio__logo">portfolio</div>
         <ul class="links portfolio__btns">
@@ -104,7 +110,7 @@
       </div>
     </section>
 
-    <section class="defoultSection">
+    <section  class="defoultSection">
       <div class="container">
         <div class="defoultSection__title">just default section</div>
 
@@ -133,13 +139,16 @@
         </div>
         <div class="twitter__desc">Unerdwear cookie liquorice. Cake donut cupcake lollipop soufflé candy. Chocolate oat cake <a class="link_sc" href="https://twitter.com/cheesecake" target="_blank"></b>@cheesecake</b></a> tootsie roll.</div>
       </div>
+    
     </section>
+    
     <section class="who-is">
+      <a name="features"></a>
       <div class="container">
         <div class="who-is__title">Who is john doe?</div>
-        <div class="who-is__desc">Bear claw marzipan bear claw applicake I love muffin. Lemon drops gummi bears pastry gummi bears sesame snaps I love unerdwear.com. Soufflé cotton candy dessert candy ice cream wafer gummies cheesecake brownie.</div>
-        <div class="who-is__desc">Pudding dessert jujubes tiramisu gingerbread croissant tiramisu applicake. Sesame snaps sugar plum cotton candy chocolate bonbon lemon drops candy canes cotton candy. Cake toffee pie bear claw pastry.</div>
-        <div class="who-is__desc">Muffin chupa chups jelly beans sweet pie applicake. Croissant chocolate cake I love pudding. Ice cream I love powder pudding apple pie marshmallow. Cupcake marzipan oat cake bonbon I love candy canes toffee.</div>
+        <p class="who-is__desc">Bear claw marzipan bear claw applicake I love muffin. Lemon drops gummi bears pastry gummi bears sesame snaps I love unerdwear.com. Soufflé cotton candy dessert candy ice cream wafer gummies cheesecake brownie.</p>
+        <p class="who-is__desc">Pudding dessert jujubes tiramisu gingerbread croissant tiramisu applicake. Sesame snaps sugar plum cotton candy chocolate bonbon lemon drops candy canes cotton candy. Cake toffee pie bear claw pastry.</p>
+        <p class="who-is__desc">Muffin chupa chups jelly beans sweet pie applicake. Croissant chocolate cake I love pudding. Ice cream I love powder pudding apple pie marshmallow. Cupcake marzipan oat cake bonbon I love candy canes toffee.</p>
         <div class="who-is__icons">
           
           <div class="wrapper">
@@ -148,22 +157,83 @@
           </div>
 
           <div class="wrapper">
-            <i class="twitter__icon"></i>
+            <i class="googlePlus__icon"></i>
             <a class="link_hide" href="https://twitter.com/" target="_blank"></a>
           </div>
           
           <div class="wrapper">
-            <i class="twitter__icon"></i>
-            <a class="link_hide" href="https://twitter.com/" target="_blank"></a>
+            <i class="dribbble__icon"></i>
+            <a class="link_hide" href="https://dribbble.com/" target="_blank"></a>
           </div>
           
           <div class="wrapper">
-            <i class="twitter__icon"></i>
-            <a class="link_hide" href="https://twitter.com/" target="_blank"></a>
+            <i class="coffee__icon"></i>
+            <a class="link_hide" href="https://coffee.com/" target="_blank"></a>
           </div>
         </div>
       </div>
       
     </section>
+
+    <section class="testimonials">
+
+      <div class="container">
+
+        <div class="testimonials__header">
+          <p class="testimonials__title">testimonials</p>
+          <i class="testimonials__icon"></i>
+        </div>
+        
+        <div class="testimonials__desc">
+         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. In, fugit saepe. Officia at ad, dolores rerum temporibus quibusdam cumque tempora.</p>
+        </div>
+        <p class="testimonials__author">
+          -Walter White
+        </p>
+
+      </div>
+    </section>
+
+    <section  class="contact">
+      <a name="contact"></a>
+      <div class="container">
+        <div class="contact__title">contact</div>
+        <form class="contact__form" action="" method="post">
+         
+          <label class="label_fullName" for="fullName">full name</label>
+          <input type="text" name="fullName" id="fullName">
+
+          <label class="contact__desc"><p>Jujubes bear claw croissant wafer sweet lemon drops brownie chocolate bar. Sweet lollipop halvah tootsie roll cake fruitcake. Chocolate cake chocolate bar gingerbread lollipop tart. Jujubes bear claw donut chupa chups.</p></label>
+
+          <label class="label_email" for="email">email</label>
+          <input type="text" name="email" id="email">
+
+          <label class="contact__desc">
+            <p >Linda Newman</p> 
+            <p>W325 State Road 123</p>
+            <p>Mondovi, WI(Wisconsin) 98746-54321</p>
+            <p>(715) 946 - 1234</p>
+          </label>
+
+          <label class="label_message" for="message">message</label>
+          <textarea name="message" id="message"></textarea>
+
+          <button class="contact__submit" type="submit">message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <ul class="footer__links">
+          <li class="footer__el"><a href="#home" class="link footer__link">home</a></li>
+          <li class="footer__el"><a href="#services" class="link footer__link">services</a></li>
+          <li class="footer__el"><a href="#portfolio" class="link footer__link">portfolio</a></li>
+          <li class="footer__el"><a href="#contact" class="link footer__link">contact</a></li>
+        </ul>
+
+        <div class="copyright">2021 ©</div>
+      </div>
+    </footer>
   </body>
 </html>

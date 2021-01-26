@@ -15,7 +15,6 @@ function app() {
   portfolio__btns[0].classList.add('active');
 
   const selectTab = (e, links) => {
-    e.preventDefault();
     [].forEach.call(links, (link) => {
       link.classList.remove('active');
     });
@@ -111,6 +110,10 @@ function app() {
   /****************************************************************/
 
   $('.video_mock')[0].src = imgVimeo;
+
+  $('.contact__form').on('submit', (e) => {
+    e.preventDefault();
+  });
 }
 
 app();
