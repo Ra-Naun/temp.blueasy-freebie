@@ -5,48 +5,65 @@
 body {
   background: $main-bg-color;
   font-family: $primary-font;
+  font-weight: 100;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 80px 0;
 }
 
 .logo {
+  position: relative;
   text-transform: uppercase;
 }
 .links {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+}
 
-  .el {
-    .link {
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      &:hover {
-        color: $accent-color;
-        border: 2px solid $accent-color;
-      }
-    }
-    .link.active {
-      color: $active-color;
-      border: 2px solid $active-color;
-      box-shadow: 4px 4px 8px 2px rgba($active-color, 0.2);
-    }
+.link {
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: $accent-color;
+    border: 2px solid $accent-color;
   }
+}
+
+.link.active {
+  color: $active-color;
+  border: 2px solid $active-color;
+  box-shadow: 4px 4px 8px 2px rgba($active-color, 0.2);
 }
 
 .header {
   height: 800px;
-  background-image: url(../imgs/header_background.png);
-  background-size: cover;
+  background: url('../imgs/header_background.png') center/cover no-repeat;
 
   .nav-bar {
     background: $bg-color;
 
     .container {
-      display: flex;
       align-items: center;
-      width: 100%;
-      justify-content: space-between;
       height: 150px;
+      padding: 0;
     }
 
     &__logo {
@@ -64,11 +81,23 @@ body {
       }
     }
     &__link {
+      color: $primary-color;
       padding: 10px 20px;
       font-size: $font-size-primary;
-      border: 2px solid rgba($color: #000, $alpha: 0);
+      font-weight: 400;
+      border: 2px solid rgba($color: #000000, $alpha: 0);
+    }
+    .link {
+      &:hover {
+        color: $accent-color;
+        border: 2px solid $accent-color;
+      }
+    }
 
-      color: $primary-color;
+    .link.active {
+      color: $active-color;
+      border: 2px solid $active-color;
+      box-shadow: 4px 4px 8px 2px rgba($active-color, 0.2);
     }
   }
 
@@ -99,10 +128,7 @@ body {
   background: $active-color;
 
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
+    padding: 0;
   }
 
   &__title {
@@ -121,21 +147,21 @@ body {
       margin-top: 40px;
     }
     .coffee {
-      background-image: url('../imgs/coffee-break.svg');
-      background-size: cover;
+      background: url('../imgs/coffee-break.svg') center/cover no-repeat;
+      background-size: 55px 55px;
     }
     .instant {
-      background-image: url('../imgs/instant-camera.svg');
-      background-size: cover;
+      background: url('../imgs/instant-camera.svg') center/cover no-repeat;
+      background-size: 55px 55px;
     }
     .serious {
-      background-image: url('../imgs/scroll.svg');
-      background-size: cover;
+      background: url('../imgs/scroll.svg') center/cover no-repeat;
+      background-size: 55px 55px;
     }
 
     .frame {
-      background-image: url('../imgs/frame.svg');
-      background-size: cover;
+      background: url('../imgs/frame.svg') center/cover no-repeat;
+      background-size: 55px 55px;
     }
     &__title {
       font-size: $font-size-medium;
@@ -143,6 +169,7 @@ body {
     }
     &__desc {
       font-size: $font-size-primary;
+      font-weight: 400;
       text-transform: initial;
     }
   }
@@ -152,13 +179,10 @@ body {
   min-height: 400px;
   background: $primary-color;
   .container {
-    display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 80px;
+    padding-bottom: 0;
   }
+
   &__logo {
     @include __title($alter-primary-color);
   }
@@ -191,6 +215,7 @@ body {
     background: transparent;
     padding: 10px 15px;
     font-size: $font-size-primary;
+    font-weight: 400;
     border: 2px solid rgba($color: #000, $alpha: 0);
     color: $alter-primary-color;
   }
@@ -198,42 +223,43 @@ body {
   &__works {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     min-height: 200px;
     list-style: none;
-    margin: 0 auto;
     padding: 0;
+    margin: -10px 0 0 0;
   }
 
   &__work {
+    padding: 10px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
+    cursor: pointer;
     transition: 0.5s all;
 
     @media (max-width: 991.98px) and (min-width: 768px) {
       & {
         width: 50%;
-        height: 50%;
       }
     }
 
     @media (max-width: 1199.97px) and (min-width: 992px) {
       & {
         width: 33.3333%;
-        height: 33.3333%;
       }
     }
 
     @media (min-width: 1199.98px) {
       & {
         width: 25%;
-        height: 25%;
       }
     }
+    @include __heightEqualwidth();
   }
 
   .anime {
@@ -242,6 +268,7 @@ body {
   }
 
   .hide {
+    order: 1;
     animation-name: hide;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
@@ -265,7 +292,6 @@ body {
   &__img {
     width: 270px;
     height: 270px;
-    padding: 10px;
     object-fit: cover;
 
     transition: 0.5s all;
@@ -287,18 +313,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    background: rgba($color: #515f67, $alpha: 0.3);
+    //background: rgba($color: #515f67, $alpha: 0.3);
     transition: 0.5s all;
     cursor: pointer;
     box-shadow: 4px 4px 8px 2px rgba(34, 60, 80, 0.2);
-    &:hover {
-      background: rgba($color: #515f67, $alpha: 0);
-      box-shadow: 4px 4px 8px 15px rgba($accent-color, 0.2);
-      @include filter(20%);
-    }
-    &:active {
-      box-shadow: 4px 4px 8px 15px rgba($active-color, 0.4);
-    }
   }
 
   &__wrapper_lm {
@@ -308,9 +326,10 @@ body {
     width: 100%;
   }
   &__load_more {
-    margin: 30px;
+    margin: 30px 0 80px 0;
     padding: 10px 30px;
     font-size: $font-size-primary;
+    font-weight: 500;
     text-transform: uppercase;
     text-align: center;
     background: #042a63;
@@ -321,17 +340,8 @@ body {
     -webkit-font-smoothing: antialiased;
     outline: none;
     cursor: pointer;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    &:hover {
-      border: 2px solid #08367c;
-      background-color: #08367c;
-      box-shadow: 4px 4px 8px 0px rgba($accent-color, 0.2);
-    }
-    &:active {
-      border: 2px solid $active-color;
-      background-color: $active-color;
-      box-shadow: 4px 4px 8px 0px rgba($active-color, 0.2);
-    }
+    @include __transparentBorder(2px);
+    @include __highlight(2px);
   }
 }
 
@@ -340,14 +350,8 @@ body {
   width: 100%;
   color: $primary-color;
   .container {
-    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 80px 0;
     position: relative;
   }
 
@@ -361,6 +365,8 @@ body {
     order: 2;
     margin: 0;
     margin-bottom: 40px;
+    font-size: $font-size-primary;
+    font-weight: 400;
 
     width: 50%;
     margin-right: 130px;
@@ -382,6 +388,7 @@ body {
     padding: 20px 40px;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     cursor: pointer;
+    transition: all 0.25s ease-out;
     &:hover {
       color: $accent-color;
       border: 2px solid $accent-color;
@@ -404,6 +411,7 @@ body {
       max-height: 100%;
       margin-left: 15px;
       cursor: pointer;
+      transition: all 0.25s ease-out;
 
       @include filter(60%);
       &:hover {
@@ -437,14 +445,6 @@ body {
 .twitter {
   background: $active-color;
   color: $primary-color;
-  .container {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    padding: 80px 0;
-  }
 
   &__header {
     display: flex;
@@ -456,10 +456,7 @@ body {
     @include __title($primary-color);
   }
   &__icon {
-    position: relative;
-    height: 40px;
-    width: 40px;
-    background-image: url('../imgs/twitter.svg');
+    @include __icon('../imgs/twitter.svg');
   }
 
   &__desc {
@@ -484,24 +481,21 @@ body {
 
 .who-is {
   color: $primary-color;
-  background: url('../imgs/who-is.fon.png') round;
+  background: url('../imgs/who-is.fon.png') center/cover no-repeat;
+
   .container {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
     padding: 100px 0 165px 0;
   }
+
   &__title {
     @include __title($primary-color);
     width: 100%;
   }
 
   &__desc {
-    box-sizing: border-box;
     width: 50%;
     margin-bottom: 35px;
+    font-size: $font-size-primary;
     &:nth-child(2n) {
       padding-right: 25px;
     }
@@ -514,7 +508,6 @@ body {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    box-sizing: border-box;
     padding-left: 25px;
     width: 50%;
     .wrapper {
@@ -526,6 +519,7 @@ body {
       align-items: center;
       justify-content: center;
       border: 2px solid $primary-color;
+      transition: all 0.25s ease-out;
       &:hover {
         border: 2px solid $active-color;
         box-shadow: 4px 4px 8px 2px rgba($active-color, 0.2);
@@ -534,6 +528,187 @@ body {
         border: 2px solid $accent-color;
         box-shadow: 4px 4px 8px 2px rgba($accent-color, 0.2);
       }
+    }
+
+    .twitter__icon {
+      @include __icon('../imgs/twitter.svg');
+    }
+
+    .googlePlus__icon {
+      @include __icon('../imgs/google-plus-logo.svg');
+    }
+
+    .dribbble__icon {
+      @include __icon('../imgs/dribbble-logo.svg');
+    }
+
+    .coffee__icon {
+      @include __icon('../imgs/coffee-cup.svg');
+    }
+  }
+}
+
+.testimonials {
+  color: $alter-primary-color;
+  background: $primary-color;
+  .container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 80px 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__title {
+    @include __title($alter-primary-color);
+  }
+
+  &__icon {
+    @include __icon('../imgs/right-quotes-symbol.svg');
+  }
+  &__desc {
+    font-size: $font-size-medium;
+    padding-right: 100px;
+  }
+
+  &__author {
+    margin: 0;
+    padding-top: 45px;
+    color: $active-color;
+    font-size: $font-size-primary;
+    font-weight: 700;
+  }
+}
+
+.contact {
+  color: $primary-color;
+  background: url('../imgs/contact-fon.png') center/cover no-repeat;
+
+  &__title {
+    @include __title($primary-color);
+  }
+
+  &__form {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__desc {
+    width: 50%;
+    padding: 0 0 0 15px;
+    margin: -20px 0 0 0;
+  }
+
+  .label_fullName {
+    padding: 40px 0 10px 0;
+    margin-right: 70%;
+    text-transform: uppercase;
+  }
+
+  #fullName {
+    width: calc(50%-115px);
+    height: 58px;
+    margin: 0;
+    padding: 5px 10px;
+
+    @include __textarea();
+  }
+
+  .label_email {
+    padding: 40px 0 10px 0;
+    margin-right: 100%;
+    text-transform: uppercase;
+  }
+
+  #email {
+    width: calc(50%-115px);
+    height: 58px;
+    margin: 0;
+    padding: 5px 10px;
+
+    @include __textarea();
+  }
+
+  .label_message {
+    padding: 40px 0 10px 0;
+    margin-right: 100%;
+    text-transform: uppercase;
+  }
+
+  #message {
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    height: 218px;
+    resize: vertical;
+    max-height: 400px;
+    min-height: 100px;
+    @include __textarea();
+  }
+
+  &__submit {
+    color: $primary-color;
+    text-transform: uppercase;
+    margin-top: 40px;
+    padding: 25px 155px;
+    background: $active-color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    @include __transparentBorder(2px);
+    @include __highlight(2px);
+  }
+}
+
+.footer {
+  color: $primary-color;
+  background: $bg-color;
+  .container {
+    align-items: center;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  &__el {
+    padding-right: 15px;
+
+    &::after {
+      content: '|';
+      padding-left: 15px;
+    }
+
+    &:last-child {
+      padding-right: 0;
+
+      &::after {
+        content: '';
+      }
+    }
+  }
+
+  &__link {
+    color: $primary-color;
+    &:hover {
+      @include __transparentBorder(0px);
     }
   }
 }
